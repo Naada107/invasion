@@ -47,7 +47,7 @@
 .card .back {
     background: 
         /*linear-gradient(rgba(193, 177, 216, 0.5), rgba(193, 177, 216, 0.5)), */
-        url(/image/cardBachground.png) repeat center center;
+        url(./image/cardBachground.png) repeat center center;
     background-size: 30%;
 }
   
