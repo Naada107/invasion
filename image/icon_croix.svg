@@ -1,0 +1,14 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icone_machine" filter="url(#filter0_b_325_1438)">
+<path id="Vector" d="M32 32L8 8" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="square"/>
+<path id="Vector_2" d="M32 8L8 32" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="square"/>
+</g>
+<defs>
+<filter id="filter0_b_325_1438" x="-72" y="-72" width="184" height="184" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="36"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_325_1438"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_325_1438" result="shape"/>
+</filter>
+</defs>
+</svg>
