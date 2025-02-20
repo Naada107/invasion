@@ -630,16 +630,16 @@ url('fonts/Unbounded-Light.woff') format('woff');
 }
 
 /*//////////////////////////////////////////// Specifique Elimination 1 //////////////////////////////////////////*/
-
+/*
 #elimination1 .image-container {
     grid-template-columns: 1fr 1fr 1fr;
-}
+}*/
 
 /*//////////////////////////////////////////// Specifique Elimination 2 //////////////////////////////////////////*/
-
+/*
 #elimination2 .image-container {
     grid-template-columns: 1fr 1fr;
-}
+}*/
 
 #elimination2 .image-container img.selected {
     border: 8px solid var(--yellow-color);
