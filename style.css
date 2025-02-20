@@ -98,8 +98,7 @@ url('fonts/Unbounded-Light.woff') format('woff');
     body { 
         text-align: center;
         font-family: var(--fontPrimary); 
-        /*height: 100vh;*/
-        height: 100%; 
+        height: 100vh; 
         background-image: 
         url('image/background_main_empreinte.png'), 
         radial-gradient(circle at right bottom, var(--gradient-light-color), var(--gradient-dark-color));
@@ -107,14 +106,20 @@ url('fonts/Unbounded-Light.woff') format('woff');
         background-position: top left, right;
         font-size: 18px;
         line-height: 1.5;
-        border:2px solid green;
     }
 
+    h1 {
+        font-size:20px;
+    }
+    h2 {
+        font-size:17px;
+    }
+    
     button, 
     input[type="submit"] {
         background-color: var(--button-color);
         color: black;
-        padding: 10px 20px;
+        padding: 8px 10px;
         border: none;
         border-radius: var(--borderRadiusInputs);
         cursor: pointer;
@@ -589,9 +594,18 @@ url('fonts/Unbounded-Light.woff') format('woff');
 */
 /*//////////////////////////////////////////// Commun Elimination 1 et 2//////////////////////////////////////////*/
 
-#elimination1 > h1,
-#elimination2 > h1 {
+#entetePage {
     margin-top:30px;
+    width:90%;
+    margin: 15px auto 0;
+}
+#entetePage h1 {
+ font-size:25px;
+ line-height: 1;
+}
+#entetePage P {
+    font-size: 16px;
+    line-height: 1;
 }
 
 #elimination1 .image-container,
@@ -603,7 +617,7 @@ url('fonts/Unbounded-Light.woff') format('woff');
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin-top: 10px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 #elimination1 .image-container img,
 #elimination2 .image-container img {
@@ -619,14 +633,12 @@ url('fonts/Unbounded-Light.woff') format('woff');
 
 #elimination1 .image-container {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
 }
 
 /*//////////////////////////////////////////// Specifique Elimination 2 //////////////////////////////////////////*/
 
 #elimination2 .image-container {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
 }
 
 #elimination2 .image-container img.selected {
