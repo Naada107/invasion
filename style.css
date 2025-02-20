@@ -98,7 +98,8 @@ url('fonts/Unbounded-Light.woff') format('woff');
     body { 
         text-align: center;
         font-family: var(--fontPrimary); 
-        height: 100vh; 
+        /*height: 100vh;*/
+        height: 100%; 
         background-image: 
         url('image/background_main_empreinte.png'), 
         radial-gradient(circle at right bottom, var(--gradient-light-color), var(--gradient-dark-color));
