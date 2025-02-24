@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Elimination de deux suspets</title>
+</head>
+<body id="elimination2">
+    <!-- HEADER -->
+    <header class="appHeader popup-active">
+        <!-- Logo -->
+        <div id="logo">
+            <img src="image/logo.svg" alt="logo invasion">
+        </div>
+        <!-- /Logo -->
+    
+        <!-- Timer -->
+        <div id="timer-container">
+            <div class="screen-display">
+                <div id="timer">00:00</div>
+                <div id="labels">
+                    <span class="label">Minutes</span>
+                    <span class="label">Secondes</span>
+                </div>
+            </div>
+            <div id="timer-button-container">
+                <button id="playPause">Play</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        <!-- /Timer -->
+    </header>
+    <!--/HEADER -->
+
+    <div id="entetePage">
+        <h1 class="titrePopup">Libérez deux suspects</h1>
+        <p>Sélectionnez deux individu qui ne sont pas coupable.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="image/jeux/image1.jpg" onclick="selectionnerImage(1)">
+        <img src="image/jeux/image2.jpg" onclick="selectionnerImage(2)">
+        <img src="image/jeux/image3.jpg" onclick="selectionnerImage(3)">
+        <img src="image/jeux/image5.jpg" onclick="selectionnerImage(4)">        
+        <img src="" onclick="selectionnerImage(5)">
+    </div>
+
+    <button onclick="window.location.href='index.html'">Retour à l'accueil</button>
+    <button onclick="verifierSelection()">Valider</button>
+
+    <script>
+        let selection = [];
+        const bonnesImages = [1, 3]; // Modifier ces chiffres pour changer les images correctes
+
+        function selectionnerImage(numero) {
+            const index = selection.indexOf(numero);
+            if (index === -1) {
+                if (selection.length < 2) {
+                    selection.push(numero);
+                    document.querySelectorAll('.image-container img')[numero - 1].classList.add('selected');
+                }
+            } else {
+                selection.splice(index, 1);
+                document.querySelectorAll('.image-container img')[numero - 1].classList.remove('selected');
+            }
+        }
+
+        function verifierSelection() {
+            if (selection.length === 2 && selection.every(num => bonnesImages.includes(num))) {
+                showCustomPopup("Bien joué !"," Le coupable est principalement herbivore. Le sanglier et le renard ne pouvaient donc pas être les coupables, car ils sont omnivores. Pour vous rendre au prochain lieu, piochez la carte", "52");
+            } else {
+                showCustomPopupInfo("Raté ! Ce n'est pas un innocent.", " Essayez encore mais vous avez une minute de pénalité !");
+                addPenalty();
+            }
+            selection = [];
+            document.querySelectorAll('.image-container img').forEach(img => img.classList.remove('selected'));
+        }
+    </script>
+
+
+    <!-- custom-popup -->
+    <div id="custom-popup" class="popup-inline hidden">
+        <div class="popup-inline-content">
+            <h1 class="titrePopup">Titre popup inline</h1>
+            <p>Texte</p>
+            <div id="cardNumber"><span id="popup-number"></span></div> <!-- Élément pour le numéro -->
+            <span class="closePopup" id="popup-ok-btn">
+                <img src="./image/icon_close.svg" alt="fermer">
+            </span>
+        </div>
+    </div>
+    <!-- /custom-popup -->
+
+
+    <!-- script pour jeu 78 elimination 2 -->
+
+    <!-- script pour popup message générique -->
+    <script src="scripts/popupMessage.js" "></script>
+    <!-- script pour gestion chronomètre -->
+    <script src="scripts/timer.js"></script>
+</body>
+</html>

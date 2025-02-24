@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Jeu de l'image</title>
+    <style>
+        /* Style de l'image */
+        .image-container-piece{
+            width: 90%;
+            margin: 20px auto 0;
+            max-width: 500px;
+        }
+
+        .game-image{
+            border-radius: 5%;
+            width: 100%;
+            height: auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="appHeader popup-active">
+        <!-- Logo -->
+        <div id="logo">
+            <img src="image/logo.svg" alt="logo invasion">
+        </div>
+        <!-- /Logo -->
+    
+        <!-- Timer -->
+        <div id="timer-container">
+            <div class="screen-display">
+                <div id="timer">00:00</div>
+                <div id="labels">
+                    <span class="label">Minutes</span>
+                    <span class="label">Secondes</span>
+                </div>
+            </div>
+            <div id="timer-button-container">
+                <button id="playPause">Play</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        <!-- /Timer -->
+    </header>
+    <!--/HEADER -->
+    <div class="image-container-piece">
+        <img src="image/jeux/feuille.png" alt="Image à explorer" class="game-image" id="gameImage">
+        <div id="clickZone" class="click-zone"></div> <!-- Carré rouge -->
+    </div>
+
+
+    <button onclick="window.location.href='index.html'">Retour à l'accueil</button>
+  
+    <!-- custom-popup -->
+    <div id="custom-popup" class="popup-inline hidden">
+        <div class="popup-inline-content">
+            <h1 class="titrePopup">Titre popup inline</h1>
+            <p>Texte</p>
+            <div id="cardNumber"><span id="popup-number"></span></div> <!-- Élément pour le numéro -->
+            <span class="closePopup" id="popup-ok-btn">
+                <img src="./image/icon_close.svg" alt="fermer">
+            </span>
+        </div>
+    </div>
+    <!-- /custom-popup -->
+
+
+    <!-- Liens vers les fichiers JavaScript -->   
+
+    <!-- script pour jeu 02 piece -->
+    <script src="scripts/piece.js"></script>
+    <!-- script pour popup message générique -->
+    <script src="scripts/popupMessage.js"></script>
+    <!-- script pour gestion chronomètre -->
+    <script src="scripts/timer.js"></script>
+
+</body>
+</html>

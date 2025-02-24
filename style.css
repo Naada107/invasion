@@ -1,0 +1,673 @@
+
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│	VARIABLES
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+:root {
+
+    --green-color: #606c38;
+    --yellow-color:#ffcb4b;
+    --brown-color:#7e3f25;
+    --violet-color:#b17375;
+    --black-color:#000000;   
+    --white-color:#ffffff;  
+
+    
+    --button-color:#bbb0d6; 
+    --button-color-hover:#a795d5; 
+
+    --gradient-light-color:#dcaf7c; 
+    --gradient-dark-color:#e38e3e; 
+    
+    
+    /*section default padding */
+    --defaultPadding:10px;
+
+    /* Bords arrondis */
+    --borderRadius: 10px;
+    --borderRadiusInputs: 5px;
+    --borderRadiusPopups: 25px;
+
+    /* ombre portée boites*/
+    --boxShadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* Polices de caractère utilisées dans le site */
+    --fontPrimary: 'Coconat_Regular'; 
+    --fontPrimary_Black: 'Coconat_Demi'; 
+    --fontPrimary_Bold: 'Coconat_Bold'; 
+    --fontSecondary_Light:  'Unbounded-Light';
+       
+    /* Hauteur du Header avec classe .popup-active pour le calcul de la position des popups */
+    --headerActiveHeight: 112px;
+
+    }
+
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│	TYPOGRAPHY
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/* Ajout local polices Coconat
+///////////////////////////////////////////////////////////////*/
+
+
+@font-face {
+font-family: 'Coconat_Bold';  
+font-style: normal;
+src: url('fonts/Coconat-Bold.otf') format('openType'),
+url('fonts/Coconat-Bold.woff2') format('woff2'),
+url('fonts/Coconat-Bold.woff') format('woff');
+}
+@font-face {
+font-family: 'Coconat_Demi';  
+font-style: normal;
+src: url('fonts/Coconat-Demi.otf') format('openType'),
+url('fonts/Coconat-Demi.woff2') format('woff2'),
+url('fonts/Coconat-Demi.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Coconat_Regular';  
+font-style: normal;
+src: url('fonts/Coconat-Regular.otf') format('openType'),
+url('fonts/Coconat-Regular.woff2') format('woff2'),
+url('fonts/Coconat-Regular.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Unbounded-Light';  
+font-style: normal;
+src: url('fonts/Unbounded-Light.otf') format('openType'),
+url('fonts/Unbounded-Light.ttf') format('ttf'),
+url('fonts/Unbounded-Light.woff') format('woff');
+}
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│	GLOBAL
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+    * { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+    }
+
+    body { 
+        text-align: center;
+        font-family: var(--fontPrimary); 
+        height: 100vh; 
+        background-image: 
+        url('image/background_main_empreinte.png'), 
+        radial-gradient(circle at right bottom, var(--gradient-light-color), var(--gradient-dark-color));
+        background-repeat: repeat, no-repeat;
+        background-position: top left, right;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size:20px;
+    }
+    h2 {
+        font-size:17px;
+    }
+    
+    button, 
+    input[type="submit"] {
+        background-color: var(--button-color);
+        color: black;
+        padding: 8px 10px;
+        border: none;
+        border-radius: var(--borderRadiusInputs);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: var(--boxShadow);
+        font-family: var(--fontPrimary);
+        font-size: 18px;
+        margin: 0 10px;
+    }
+    
+    button:hover, 
+    input[type="submit"]:hover {
+        background-color: var(--button-color-hover);
+        transform: scale(1.05);
+    }
+    
+    button:active, 
+    input[type="submit"]:active {
+        background-color: var(--button-color-hover);
+        transform: scale(0.98);
+    }
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│	TEMPLATE
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+    /*//////////////////////////////////////////// Header //////////////////////////////////////////*/
+
+    header {    
+        transition: height 1s ease;        
+        /*border: 2px solid var(--white-color);*/
+        height:260px;   
+        position: relative;   
+    }
+
+    header.popup-active {
+        transition: height 1s ease;
+        height:112px;   
+    }
+
+    /* Logo --------------------------------------------------------------------------------------------------*/
+
+    #logo {
+        /*border:1px solid red;*/
+        transition: all 1s ease;
+        position: absolute;           
+        width: 123px;
+        top: 25px;
+        left: 50%;   
+        transform: translateX(-50%); /* Centre horizontalement */
+    }
+
+        #logo img {
+            height: auto;
+            width:100%;            
+        }
+
+    /* Timer --------------------------------------------------------------------------------------------------*/
+
+    #timer-container {
+        text-align: center;
+        transition: all 1s ease;
+        position: absolute;         
+        top: 123px;
+        left: 50%; 
+        right: auto;    
+        width: 90%;  
+        max-width: 768px;
+        transform: translateX(-50%); /* Centre horizontalement */
+    }
+
+        /* Ecran affichage blanc timer */
+        .screen-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            background-color: #fff;
+            border-radius: var(--borderRadius);
+            width: 100%;
+            padding: 10px; 
+        }
+
+            /* Affichage temps */
+            #timer {
+                transition: all 1s ease; 
+                color:var(--black-color);
+                font-style: normal;
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 100%; /* 36px */
+                letter-spacing: 0.36px;
+                margin-bottom: 8px; /* Espace entre le minuteur et les labels */
+            }
+            
+            /* Affichage textes minutes et secondes sous le timer */
+            #labels {
+                transition: all 1s ease; 
+                display: flex;
+                gap: 8px; /* Espace entre les labels */
+            }
+
+                .label {
+                    transition: all 1s ease; 
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    color:var(--black-color);
+                }
+
+
+    /* Boutons sous le timer --------------------------------------------------------------------------------------------------*/
+
+    #timer-button-container {
+        display: flex;
+        gap: 8px; 
+        width: 100%;
+        margin-top:8px;
+    }
+
+    #timer-container button {
+        width: 100%;
+        padding: 10px 20px;
+        font-family: Coconat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        border: none;
+        border-radius: var(--borderRadiusInputs);
+        background-color: #bbb0d6;
+        color: var(--black-color);
+        cursor: pointer;
+        margin: 0 auto;
+    }
+
+    #timer-container button:hover {
+        background-color: #a795d5;
+    }
+
+    /* Changements lorqu'un popup est actif avec la classe ().popup-active) ------------------------------------*/
+
+    header.popup-active #logo {
+        transition: all 1s ease;          
+        top: 45px;
+        left: 16px;   
+        transform: translateX(0);
+    }
+
+    header.popup-active #timer-container {
+        width:50%;
+        transition: all 1s ease; 
+        position: absolute;   
+        top: 25px;
+        left: auto;                         
+        right: 16px;  
+        transform: translateX(0);
+    }
+
+
+    header.popup-active #timer-container #timer {
+        transition: all 1s ease; 
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+
+    header.popup-active #timer-container #labels .label {
+        transition: all 1s ease; 
+        font-size: 8px;
+    }
+    header.popup-active #timer-container button {
+        transition: all 1s ease; 
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+
+    /*//////////////////////////////////////////// Popups avec clavier //////////////////////////////////////////*/
+
+    .popup-container { 
+        position: fixed; 
+        bottom: 0; 
+        width: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .popup {   
+        position: fixed;
+        bottom: 0;
+        top :auto;
+        width: 100%;
+        height: 60vh; 
+        border-radius: var(--borderRadiusPopups);
+        cursor: pointer;
+        text-align: left;
+        transition: transform 0.8s ease-in-out, opacity 0.8s ease;
+        box-shadow: var(--boxShadow);
+        overflow: hidden; /* Masquer le contenu débordant */
+    }
+
+    #popup4 {
+        z-index: 4;
+        background-image: url('image/Penalite.png'); 
+        background-size: cover;
+        background-position: center;
+        transform: translateY(calc(100% - 60px));
+        transition: all 0.8s ease-in-out, opacity 0.8s ease;
+    }
+    
+    #popup3 {
+        z-index: 3;
+        background-image: url('image/Indice.png'); 
+        background-size: cover;
+        background-position: center;
+        transform: translateY(calc(100% - 120px));
+        transition: all 0.8s ease-in-out, opacity 0.8s ease;
+    }
+    
+    #popup2 {
+        z-index: 2;
+        background-image: url('image/Code.png'); 
+        background-size: cover;
+        background-position: center;
+        transform: translateY(calc(100% - 180px));
+        transition: all 0.8s ease-in-out, opacity 0.8s ease;
+    }
+    
+    #popup1 {
+        z-index: 1;
+        background-image: url('image/Machine.png'); 
+        background-size: cover;
+        background-position: center;
+        transform: translateY(calc(100% - 240px));
+        transition: all 0.8s ease-in-out, opacity 0.8s ease;
+    }
+
+    .popup-header {
+        height: 60px;  
+        padding: 20px 40px;
+    }
+    
+    .popup-content {
+        padding: 20px;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 1s ease;
+    }
+
+    .popup .popup-title {             
+        color:var(--white-color);
+        font-size: 1.2rem;
+        line-height: 100%;
+        display: block;
+        margin-right: 50px;
+    }
+    .popup .popup-icon { 
+        cursor: absolute; 
+        position: absolute;
+        right: 40px;
+        top:10px;
+        width:40px;
+        height:40px;
+        text-align: center;
+    }
+    .popup .popup-icon img { 
+        width:40px;
+        height:40px;
+    }
+
+    .popup .close { 
+        position: absolute;
+        right: 40px;
+        top:10px;
+        width:40px;
+        height:40px;
+        display: none; 
+    }
+
+    .popup.active { 
+        transform: translateY(0) !important;
+        top: calc(var(--headerActiveHeight) + 80px);
+        opacity: 1;
+        z-index: 10;
+        box-shadow: var(--boxShadow);
+    }
+    .popup.active .popup-icon { 
+        display: none; 
+    }
+    .popup.active .close { 
+        display: block; 
+    }
+    .popup.inactive { 
+    }
+
+    #popup4.inactive {transform: translateY(calc(100%)); transition: transform 0.8s ease-in-out, opacity 0.8s ease;}
+    #popup3.inactive {transform: translateY(calc(100%)); transition: transform 0.8s ease-in-out, opacity 0.8s ease;}
+    #popup2.inactive {transform: translateY(calc(100%)); transition: transform 0.8s ease-in-out, opacity 0.8s ease;}
+    #popup1.inactive {transform: translateY(calc(100%)); transition: transform 0.8s ease-in-out, opacity 0.8s ease;}
+
+    /*masquer le contenu popup par défaut*/
+    .popup-content {
+        padding: 20px;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 1s ease;
+    }
+
+    .popup.active .popup-content {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 1s ease, visibility 1s ease;
+    }
+
+
+
+    /* Numpad keyboard & key --------------------------------------------------------------------------------------------------*/
+
+    .number-pad {
+        display: grid;
+        grid-template-columns: repeat(3, 56px);
+        gap: 10px; /* Espace entre les boutons */
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .keyboard-key {
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+        font-size: 30px;
+        border: 1px solid var(--white-color); /* Bordure blanche */
+        background-color: inherit; /* Même couleur de fond que le parent */
+        color: var(--white-color);
+        cursor: pointer;
+        border-radius: 50%; /* Boutons circulaires */
+        transition: background-color 0.3s ease; /* Transition pour le survol */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fontSecondary_Light);
+    }
+
+    .keyboard-key:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Couleur de fond au survol */
+    }
+
+    /* croix et check des claviers en svg*/
+    .keyboard-key.clear-button img,
+    .keyboard-key.submit-button img {
+        width: 25px;
+        height: auto;       
+    }
+    
+
+    .display-input{
+        text-align: center;
+        padding: 10px;
+        border-radius: var(--borderRadiusInputs);
+        margin-bottom: 20px;
+        background-color: transparent;
+        border: 1px solid var(--white-color);
+        width: 200px;
+        color: var(--white-color);
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .buzer-button {
+        padding: 20px 40px;
+        font-size: 24px;
+        color: white;
+        background-color: var(--yellow-color);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: var(--boxShadow);
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .buzer-button:active {
+        transform: scale(0.95);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+   /*//////////////////////////////////////////// Popups Messages //////////////////////////////////////////*/
+   
+   .popup-inline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+        text-align: center;
+    }
+    
+
+    .popup-inline-content {
+        background: url('image/popupBackground.png') no-repeat;     
+        background-size: cover;   
+        padding: 20px;
+        border-radius: var(--borderRadius);
+        text-align: center;
+        box-shadow: var(--boxShadow);
+        max-width: 400px;
+        width: 80%;
+        animation: fadeIn 0.4s ease-out;
+        position: relative;
+    }
+        
+    .popup-inline-content h1 {
+        font-family: var(--fontPrimary_Black);
+        font-size: 24px;
+        line-height: 1.2;
+        margin:0 50px 0 0 !important;
+    }
+
+    .popup-inline-content P {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 25px 0;
+    }
+    
+    #cardNumber {
+        border: 1px solid var(--brown-color);
+        display: block;
+        height: 220px;
+        width: 155px;
+        position: relative;
+        margin: 0 auto;
+        background: url('image/piocheCard.png') no-repeat;
+        box-shadow: var(--boxShadow);
+        border-radius: var(--borderRadius);
+    }
+
+    #cardNumber  #popup-number {
+        font-family: var(--fontPrimary_Black);
+        color: var(--brown-color);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        font-size: 30px;
+        transform: translate(-50%, -50%);
+    }
+
+    .popup-inline-content .closePopup {
+        position: absolute;
+        right: 20px;
+        top:10px;
+        width:40px;
+        height:40px;
+    }
+/*
+    button#popup-ok-btn {
+        background-color: var(--violet-color);
+        color: var(--white-color);
+        border: none;
+        padding: 10px 20px;
+        border-radius: var(--borderRadiusInputs);
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 10px;
+    }*/
+    
+    button#popup-ok-btn:hover {
+        background-color: var(--violet-colo-hover);
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    @keyframes fadeIn {
+        from {
+        opacity: 0;
+        transform: scale(0.9);
+        }
+        to {
+        opacity: 1;
+        transform: scale(1);
+        }
+    }
+
+
+    /* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│	PAGES ELIMINATION
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+/*//////////////////////////////////////////// Commun Elimination 1 et 2//////////////////////////////////////////*/
+
+#entetePage {
+    margin-top:30px;
+    width:90%;
+    margin: 15px auto 0;
+}
+#entetePage h1 {
+ font-size:25px;
+ line-height: 1;
+}
+#entetePage P {
+    font-size: 16px;
+    line-height: 1;
+}
+
+#elimination1 .image-container,
+#elimination2 .image-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    margin: 10px auto;
+}
+#elimination1 .image-container img,
+#elimination2 .image-container img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+    border-radius: var(--borderRadius);
+}
+
+/*//////////////////////////////////////////// Specifique Elimination 1 //////////////////////////////////////////*/
+/*
+#elimination1 .image-container {
+    grid-template-columns: 1fr 1fr 1fr;
+}*/
+
+/*//////////////////////////////////////////// Specifique Elimination 2 //////////////////////////////////////////*/
+/*
+#elimination2 .image-container {
+    grid-template-columns: 1fr 1fr;
+}*/
+
+#elimination2 .image-container img.selected {
+    border: 8px solid var(--yellow-color);
+}

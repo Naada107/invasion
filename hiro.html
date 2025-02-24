@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Realité Augmentée</title>
+    <style>
+
+        body {
+        height: 100vh !important;
+        width: 100vw !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        }
+
+        video {
+            border: 1px solid var(--green-color) !important;
+            width: 90% !important;
+            height: auto !important;
+            top: 135px !important;
+            left: 50% !important;
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+            max-width: 90%;
+            transform: translate(-50%,0%);
+        }
+
+        
+        .camClose { 
+            position: absolute;
+            right: 6vw;
+            top: 140px;
+            width: 40px;
+            height: 40px;
+            z-index: 10000;
+            cursor: pointer; /* Change le curseur en pointeur lors du survol */
+        }
+
+        
+        </style>
+
+</head>
+    <body style="margin : 0px; overflow: hidden;">
+
+         <!-- HEADER -->
+        <header class="appHeader popup-active">
+            <!-- Logo -->
+            <div id="logo">
+                <img src="image/logo.svg" alt="logo invasion">
+            </div>
+            <!-- /Logo -->
+        
+            <!-- Timer -->
+            <div id="timer-container">
+                <div class="screen-display">
+                    <div id="timer">00:00</div>
+                    <div id="labels">
+                        <span class="label">Minutes</span>
+                        <span class="label">Secondes</span>
+                    </div>
+                </div>
+                <div id="timer-button-container">
+                    <button id="playPause">Play</button>
+                    <button id="reset">Reset</button>
+                </div>
+            </div>
+            <!-- /Timer -->
+        </header>
+        <!--/HEADER -->   
+
+        <div class="camClose" onclick="window.location.href='index.html'"><img src="image/icon_close.svg" alt="fermer"></div>
+                
+        <a-scene embedded arjs>
+        <a-marker preset="hiro">
+            <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+            <a-entity
+            position="0 0 0"
+            scale="1 1 1"
+            gltf-model="https://naada107.github.io/invasion/image/jeux/patte.gltf"
+            ></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+        </a-scene>
+        
+        
+
+    </body>
+    <!-- script pour jeu 20 hiro -->
+
+    <!-- script pour gestion chronomètre -->
+    <script src="scripts/timer.js"></script>
+
+    
+</html>
