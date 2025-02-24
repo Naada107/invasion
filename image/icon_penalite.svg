@@ -1,0 +1,16 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icone_penalite" filter="url(#filter0_b_234_1485)">
+<path id="Vector" d="M16 22L14.5 19L13 22H16Z" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="round"/>
+<path id="Vector_2" d="M18.8125 28C19.1937 28 19.5594 27.8558 19.829 27.5992C20.0985 27.3426 20.25 26.9946 20.25 26.6317V25.2635C20.7915 25.2631 21.3219 25.1173 21.7801 24.8426C22.2383 24.568 22.6058 24.1758 22.8401 23.7111C23.0744 23.2464 23.1661 22.7282 23.1046 22.2162C23.0431 21.7041 22.8309 21.2189 22.4925 20.8166C24.1398 19.3009 25.274 17.3515 25.7495 15.2182C26.2251 13.0849 26.0204 10.865 25.1616 8.84325C24.3028 6.82146 22.8292 5.08992 20.9296 3.87066C19.03 2.6514 16.7911 2 14.5 2C12.2089 2 9.96999 2.6514 8.07042 3.87066C6.17084 5.08992 4.69718 6.82146 3.83841 8.84325C2.97964 10.865 2.7749 13.0849 3.25046 15.2182C3.72601 17.3515 4.86017 19.3009 6.5075 20.8166C6.16907 21.2189 5.95689 21.7041 5.8954 22.2162C5.8339 22.7282 5.9256 23.2464 6.15992 23.7111C6.39424 24.1758 6.76167 24.568 7.21989 24.8426C7.67811 25.1173 8.20851 25.2631 8.75 25.2635V26.6317C8.75 26.9946 8.90145 27.3426 9.17104 27.5992C9.44062 27.8558 9.80625 28 10.1875 28H18.8125Z" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="round"/>
+<path id="Vector_3" d="M19.5 16C20.3284 16 21 15.3284 21 14.5C21 13.6716 20.3284 13 19.5 13C18.6716 13 18 13.6716 18 14.5C18 15.3284 18.6716 16 19.5 16Z" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="round"/>
+<path id="Vector_4" d="M10.5 16C11.3284 16 12 15.3284 12 14.5C12 13.6716 11.3284 13 10.5 13C9.67157 13 9 13.6716 9 14.5C9 15.3284 9.67157 16 10.5 16Z" stroke="#FAFFF3" stroke-width="1.6" stroke-linecap="round"/>
+</g>
+<defs>
+<filter id="filter0_b_234_1485" x="-36.9231" y="-36.9231" width="103.846" height="103.846" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="18.4615"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_234_1485"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_234_1485" result="shape"/>
+</filter>
+</defs>
+</svg>
