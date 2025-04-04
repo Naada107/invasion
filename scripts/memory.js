@@ -103,7 +103,7 @@ function resetBoard() {
 function checkForWin() {
   const flippedCards = document.querySelectorAll(".card.flipped");
   if (flippedCards.length === cards.length) {
-    showCustomPopup("Hourra, détectives !","Vous avez trouvé tous les aliments que le coupable mange. Pour avancer dans l’aventure piochez la carte,", "78");    
+    showCustomPopup("Hourra, détectives !","Le régime alimentaire du suspect est en effet herbivore, ce qui signifie qu'il peut manger des végétaux et des graines. Pour avancer dans l’aventure piochez la carte,", "78");    
   }
 }
 
