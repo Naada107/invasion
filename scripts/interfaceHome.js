@@ -95,7 +95,7 @@
 
         } else if (enteredCodeCode === "3416") {
             showCustomPopupInfo("Félicitations, détectives !", 
-                "Vous avez trouvé le coupable et l’avez mis derrière les barreaux. Grâce à vous, l’écosystème est sauvé et Romain peut retrouver son arbre en paix.", 
+                "Vous avez trouvé l'intrus et l’avez mis derrière les barreaux le temps de le libérer dans son habitât naturel. Grâce à vous, l’écosystème est sauvé et Romain l'écureil roux peut retrouver son arbre en paix.", 
                 null, 'image/Ecureuil_De_Fin.png');
             
             // Lancer les confettis
